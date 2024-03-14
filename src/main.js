@@ -7,6 +7,7 @@ import { zhCn } from "element-plus/es/locale/lang/zh-cn"; //element-plus
 import * as ElementPlusIconsVue from "@element-plus/icons-vue"; //图标
 import {  ApolloClient,createHttpLink,InMemoryCache } from '@apollo/client/core'
 import {DefaultApolloClient,provideApolloClient} from '@vue/apollo-composable'
+import i18n from "../src/lang/index.js"
 
 const httpLink = createHttpLink({
     uri:'http://43.135.75.195:8101/graphql',
@@ -40,5 +41,7 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   //图标
   app.component(key, component);
 }
+
+app.use(i18n);
 app.mount("#app");
 

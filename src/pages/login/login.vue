@@ -1,75 +1,81 @@
 <template>
     <div class="login-container">
-        <div class="form-title">注册</div>
+        <div class="form-head">
+            <div></div>
+            <div class="form-title">{{ t('app.register') }}</div>
+            <el-select class="localeBtn" v-model="localeVal" placeholder="zh"  style="width: 70px">
+                <el-option v-for="item in localeOpts" :key="item.value" :label="item.label" :value="item.value" />
+            </el-select>
+        </div>
         <el-form ref="formRef" :model="formDataRef" status-icon :rules="formRulesRef" class="login-form">
             <div class="form-container">
-                <div class="form-tit">个人信息</div>
+                <div class="form-tit">{{ t('app.myinfo') }}</div>
                 <div class="form-main">
                     <div class="form-line">
-                        <el-form-item label="名字" prop="name">
+                        <el-form-item :label="t('app.name')" prop="name">
                             <el-input v-model="formDataRef.name" />
                         </el-form-item>
-                        <el-form-item label="邮箱" prop="email">
+                        <el-form-item :label="t('app.email')" prop="email">
                             <el-input v-model="formDataRef.email" />
                         </el-form-item>
-                        <el-form-item label="手机号码" prop="phone">
+                        <el-form-item :label="t('app.phone')" prop="phone">
                             <el-input v-model="formDataRef.phone" />
                         </el-form-item>
                     </div>
                     <div class="form-line">
-                        <el-form-item label="密码" prop="password">
+                        <el-form-item :label="t('app.passward')" prop="password">
                             <el-input v-model="formDataRef.password" />
                         </el-form-item>
-                        <el-form-item label="邀请码" prop="invitationCode">
+                        <el-form-item :label="t('app.invitecode')" prop="invitationCode">
                             <el-input v-model="formDataRef.invitationCode" />
                         </el-form-item>
                     </div>
                 </div>
             </div>
             <div class="form-container">
-                <div class="form-tit">找房信息</div>
+                <div class="form-tit">{{ t('app.rentinfo') }}</div>
                 <div class="form-main form-main2">
                     <div class="form-line">
-                        <el-form-item label="学校或勤务地址" prop="school">
+                        <el-form-item :label="t('app.school')" prop="school">
                             <el-input v-model="formDataRef.school" />
                         </el-form-item>
-                        <el-form-item label="预算" prop="budget">
+                        <el-form-item :label="t('app.budget')" prop="budget">
                             <el-input v-model="formDataRef.budget" />
                         </el-form-item>
-                        <el-form-item label="通勤时间" prop="commuteTime">
+                        <el-form-item :label="t('app.commuteTime')" prop="commuteTime">
                             <el-input v-model="formDataRef.commuteTime" />
                         </el-form-item>
                     </div>
                     <div class="form-line">
-                        <el-form-item label="希望入住时间" prop="desiredCheckInTime">
+                        <el-form-item :label="t('app.desiredCheckInTime')" prop="desiredCheckInTime">
                             <el-date-picker v-model="formDataRef.desiredCheckInTime" type="date" placeholder="选择日期"
                                 :disabled-date="disabledDate" size="default" value-format="MM-DD" format="MM-DD" />
                         </el-form-item>
-                        <el-form-item label="希望的大小" prop="sizeHope">
+                        <el-form-item :label="t('app.sizeHope')" prop="sizeHope">
                             <el-input v-model="formDataRef.sizeHope" />
                         </el-form-item>
                     </div>
                     <div class="form-line">
-                        <el-form-item label="人在日本还是国内" prop="domestic" class="radio-box">
+                        <el-form-item :label="t('app.domestic')" prop="domestic" class="radio-box">
                             <el-radio-group v-model="formDataRef.domestic" class="ml-4">
-                                <el-radio :label="false" size="large">国内</el-radio>
-                                <el-radio :label="true" size="large">日本</el-radio>
+                                <el-radio :label="false" size="large">{{ t('app.chinese') }}</el-radio>
+                                <el-radio :label="true" size="large">{{ t('app.japanse') }}</el-radio>
                             </el-radio-group>
                         </el-form-item>
-                        <el-form-item label="当前联系中介数量" prop="intermediary">
+                        <el-form-item :label="t('app.intermediary')" prop="intermediary">
                             <el-input v-model="formDataRef.intermediary" />
                         </el-form-item>
                     </div>
                     <div class="form-line">
-                        <el-form-item label="验证码" prop="captchaID" class="captcha">
+                        <el-form-item :label="t('app.captchaCode')" prop="captchaID" class="captcha">
                             <img id="outputImage" src="" alt="验证码">
-                            <button @click.prevent="getCaptcha">换一张</button>
+                            <button @click.prevent="getCaptcha">{{ t('app.captchaChange') }}</button>
                         </el-form-item>
-                        <el-form-item label="输入验证码" prop="captchaCode">
+                        <el-form-item :label="t('app.captchaInput')" prop="captchaCode">
                             <el-input v-model="formDataRef.captchaCode" />
                         </el-form-item>
                         <el-form-item>
-                            <el-button type="primary" @click="submitForm(formRef)">注册</el-button>
+                            <el-button type="primary" @click="submitForm(formRef)">{{ t('app.register') }}</el-button>
                         </el-form-item>
                     </div>
                 </div>
@@ -86,6 +92,36 @@ import { useQuery, useMutation } from '@vue/apollo-composable';
 import { watchEffect, computed } from 'vue';
 import { ElMessage } from 'element-plus';
 import { useRouter } from 'vue-router';
+import { useI18n } from "vue-i18n";
+
+//多语言切换
+const { t, locale } = useI18n();
+
+const localeVal = ref();
+
+const localeOpts = [
+    {
+        value: "zh",
+        label: "zh",
+    },
+    {
+        value: "ja",
+        label: "ja",
+    },
+]
+
+watchEffect(() => {
+    console.log('localeVal 已更改:', localeVal.value);
+    if (localeVal.value == undefined) {
+
+    } else {
+        locale.value = localeVal.value;
+    }
+
+});
+
+
+// 路由
 const router = useRouter();
 
 //查询验证码规则
@@ -405,18 +441,32 @@ mutation registryUser {
 
 </script>
 <style scope>
+
 .login-container {
     height: 100%;
 
-    .form-title {
+    .form-head {
         margin-bottom: 20px;
-        text-align: center;
         font-size: 18px;
         font-weight: bold;
         background-color: rgb(64, 158, 255);
         color: white;
         padding: 10px;
         width: 100%;
+        position: relative;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        .form-title {
+            /* text-align: center; */
+        }
+
+        .localeBtn {
+            /* position: absolute;
+            top: 10px;
+            right: 10px; */
+        }
     }
 
     .login-form {

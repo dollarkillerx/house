@@ -1,0 +1,24 @@
+{
+    "app":{
+        "register":"登録",
+        "myinfo":"個人情報",
+        "name":"名前",
+        "email":"メールアドレス",
+        "phone":"電話番号",
+        "passward":"パスワード",
+        "invitecode":"招待コード",
+        "rentinfo":"賃貸情報",
+        "school":"学校または勤務先",
+        "budget":"予算",
+        "commuteTime":"通勤時間",
+        "sizeHope":"希望のサイズ",
+        "desiredCheckInTime":"希望の入居時間",
+        "intermediary":"現在連絡中の仲介数",
+        "domestic":"国内",
+        "captchaCode":"驗証コード",
+        "captchaChange":"別のコードを表示",
+        "captchaInput":"驗証コードを入力",
+        "chinese":"中国語",
+        "japanse":"日本語"
+    }
+}

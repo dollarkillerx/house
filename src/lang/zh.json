@@ -1,0 +1,24 @@
+{
+    "app":{
+        "register":"注册",
+        "myinfo":"个人信息",
+        "name":"名字",
+        "email":"邮箱",
+        "phone":"手机号码",
+        "passward":"密码",
+        "invitecode":"邀请码",
+        "rentinfo":"租房信息",
+        "school":"学校或勤务地址",
+        "budget":"预算",
+        "commuteTime":"通勤时间",
+        "sizeHope":"希望的大小",
+        "desiredCheckInTime":"希望入住时间",
+        "intermediary":"当前联系中介数量",
+        "domestic":"人在日本还是国内",
+        "captchaCode":"验证码",
+        "captchaChange":"换一张",
+        "captchaInput":"输入验证码",
+        "chinese":"国内",
+        "japanse":"日本"
+    }
+}
