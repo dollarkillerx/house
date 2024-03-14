@@ -1,0 +1,25 @@
+.container {
+  .head {
+    padding: 10px 20px;
+  }
+  .my-info-main {
+    padding: 0 20px;
+    .my-info-head {
+      background-color: rgb(248, 248, 249);
+      color: rgb(136, 136, 136);
+      padding: 10px 20px;
+      box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.2);
+    }
+    .my-info-content {
+      padding: 0 20%;
+      margin-top: 8%;
+      .saveChange{
+        width: 100%;
+        padding: 18px 0;
+      }
+    }
+  }
+  .follow-main {
+    padding: 0 30px;
+  }
+}
