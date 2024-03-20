@@ -4,7 +4,7 @@ import ja from "../lang/ja.json"
 
 export default new createI18n({
     legacy:false,
-    locale:"zh",
+    locale:localStorage.getItem('lang') || 'zh',
     fallbackLocale:"zh",
     messages:{
         zh,

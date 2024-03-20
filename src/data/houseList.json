@@ -1,0 +1,58 @@
+{
+    "house": [
+        {
+            "src": "@/assets/houseList/house.jpg",
+            "title": "银都大厦一居",
+            "square": "25平方",
+            "subtit": "距离3号线步行200米",
+            "price": 20,
+            "direction": "朝南",
+            "staircase": "29层"
+        },
+        {
+            "src": "@/assets/houseList/house.jpg",
+            "title": "银都大厦一居",
+            "square": "25平方",
+            "subtit": "距离3号线步行200米",
+            "price": 20,
+            "direction": "朝南",
+            "staircase": "29层"
+        },
+        {
+            "src": "@/assets/houseList/house.jpg",
+            "title": "银都大厦一居",
+            "square": "25平方",
+            "subtit": "距离3号线步行200米",
+            "price": 20,
+            "direction": "朝南",
+            "staircase": "29层"
+        },
+        {
+            "src": "@/assets/houseList/house.jpg",
+            "title": "银都大厦一居",
+            "square": "25平方",
+            "subtit": "距离3号线步行200米",
+            "price": 20,
+            "direction": "朝南",
+            "staircase": "29层"
+        },
+        {
+            "src": "@/assets/houseList/house.jpg",
+            "title": "银都大厦一居",
+            "square": "25平方",
+            "subtit": "距离3号线步行200米",
+            "price": 20,
+            "direction": "朝南",
+            "staircase": "29层"
+        },
+        {
+            "src": "@/assets/houseList/house.jpg",
+            "title": "银都大厦一居",
+            "square": "25平方",
+            "subtit": "距离3号线步行200米",
+            "price": 20,
+            "direction": "朝南",
+            "staircase": "29层"
+        }
+    ]
+}
